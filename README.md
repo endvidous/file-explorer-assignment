@@ -8,7 +8,7 @@ This project was built using an AI-assisted workflow:
 
 1. **Implementation Planning**: Claude was used to create a detailed implementation plan, defining the architecture, component structure, and key features required for the file explorer.
 
-2. **Project Development**: [Cline](https://github.com/cline/cline) (an autonomous AI coding agent) was used to implement the entire project based on the plan, handling component development, state management, styling, and testing.
+2. **Project Development**: [Cline](https://github.com/cline/cline) (an autonomous AI coding agent) was used with the model deepseek-v4:flash to implement the entire project based on the plan, handling component development, state management, styling, and testing.
 
 ## Tech Stack
 
@@ -59,4 +59,7 @@ src/
 ├── utils/                 # Utility functions
 └── types/                 # TypeScript type definitions
 ```
+
+```
+
 ```
