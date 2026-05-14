@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables — Light theme (default) ────────────────────────────────── */
+:root {
+  --bg: #f6f8fa;
+  --sidebar: #ffffff;
+  --hover: #eef1f5;
+  --hover-strong: #e2e7ed;
+  --selected: #dbeafe;
+  --border: #d0d7de;
+  --text: #1f2328;
+  --text-muted: #656d76;
+  --accent: #0969da;
+}
+
+/* ── CSS Variables — Dark theme ───────────────────────────────────────────── */
+.dark {
+  --bg: #0d1117;
+  --sidebar: #161b22;
+  --hover: #1c2128;
+  --hover-strong: #21262d;
+  --selected: #1a2d46;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+}
+
+/* ── Base resets ──────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  /* Smooth colour transitions when theme toggles */
+  transition:
+    background-color 0.25s ease,
+    color 0.2s ease;
+}
+
+/* ── Folder expand/collapse animation ─────────────────────────────────────── */
+.tree-children {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.2s ease-in-out,
+    opacity 0.15s ease;
+}
+
+.tree-children.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.tree-children-inner {
+  overflow: hidden;
+}
+
+/* ── Thin scrollbar ──────────────────────────────────────────────────────── */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 2px;
+}
+
+/* ── Keyframes (also declared in tailwind.config.js for className usage) ─── */
+@keyframes contextIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes nodeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
